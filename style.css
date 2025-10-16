@@ -1,0 +1,434 @@
+/* Root Variables for Consistent Theming */
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --secondary-color: #10b981;
+    --danger-color: #ef4444;
+    --danger-hover: #dc2626;
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+}
+/* Header Style */
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+/* Form Styles */
+form {
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--surface);
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="file"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Search Input Specific */
+#searchInput {
+    max-width: 400px;
+    margin-bottom: 1.5rem;
+}
+
+/* Button Styles */
+button {
+    padding: 0.75rem 1.5rem;
+    margin: 0.25rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+button[type="submit"],
+button:not([id]) {
+    background: var(--primary-color);
+    color: white;
+}
+
+button[type="submit"]:hover,
+button:not([id]):hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+}
+
+#exportCSV,
+#exportXLSX {
+    background: var(--secondary-color);
+    color: white;
+}
+
+#exportCSV:hover,
+#exportXLSX:hover {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
+#deleteAll,
+button:active {
+    background: var(--danger-color);
+    color: white;
+}
+
+#deleteAll:hover {
+    background: var(--danger-hover);
+    transform: translateY(-1px);
+}
+
+#clearFilters {
+    background: var(--text-secondary);
+    color: white;
+}
+
+#clearFilters:hover {
+    background: #475569;
+}
+
+/* Filter/Control Section */
+div:has(#sortSelect),
+div:has(#exportCSV) {
+    background: var(--surface);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Table Container - Scrollable */
+#resultsTable {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    background: var(--surface);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+#jobsTable{
+    width: 100%;
+    overflow-x: auto;
+    background: var(--surface);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+thead {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: white;
+    border: none;
+    white-space: nowrap;
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+tbody tr {
+    transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+    background: #f1f5f9;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Actions Column Buttons */
+td button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    margin: 0.15rem;
+}
+
+/* Logs Div - Scrollable Box */
+#logs {
+    margin-top: 2rem;
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 1.5rem;
+    border-radius: 12px;
+    max-height: 300px;
+    overflow-y: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--border-color);
+}
+
+#logs::-webkit-scrollbar {
+    width: 8px;
+}
+
+#logs::-webkit-scrollbar-track {
+    background: #334155;
+    border-radius: 4px;
+}
+
+#logs::-webkit-scrollbar-thumb {
+    background: #64748b;
+    border-radius: 4px;
+}
+
+#logs::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Link Styles */
+a {
+    display: inline-block;
+    margin-top: 0rem;
+    padding: 0.45rem 1.5rem;
+    text-decoration: none;
+    color: white;
+    background: var(--primary-color);
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+a:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    form {
+        padding: 1.5rem;
+    }
+
+    div:has(#sortSelect),
+    div:has(#exportCSV) {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    div:has(#sortSelect) label,
+    div:has(#sortSelect) select,
+    div:has(#sortSelect) input {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        margin: 0.25rem 0;
+    }
+
+    td button {
+        width: auto;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    th, td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    #logs {
+        padding: 1rem;
+        font-size: 0.8rem;
+        max-height: 200px;
+    }
+
+    #searchInput {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    form {
+        padding: 1rem;
+    }
+
+    input[type="text"],
+    input[type="datetime-local"],
+    input[type="date"],
+    input[type="file"],
+    select {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    th, td {
+        padding: 0.6rem 0.4rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+/* Loading State (if needed) */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Empty State */
+tbody:empty::after {
+    content: "No data available";
+    display: flex;
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Flatpickr Custom Styling */
+.flatpickr-calendar {
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.flatpickr-day.selected {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.flatpickr-day.selected:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+.flatpickr-time input:hover,
+.flatpickr-time input:focus {
+    background: var(--background);
+}
