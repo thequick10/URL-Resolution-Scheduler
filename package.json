@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "Author": "Rupesh Shah",
   "description": "URL resolution scheduler with frontend",
-  "main": "server.js",
+  "main": "mian-server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node main-server.js",
+    "dev": "nodemon main-server.js"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
