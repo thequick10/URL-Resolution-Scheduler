@@ -11,6 +11,14 @@ app.use(express.static('.'));
 
 const PORT = process.env.PORT || 8000;
 
+// Serve static files from /public
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Root route (optional, in case index.html doesn't automatically load)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 function getRegionZoneMap() {
   return {
     US: process.env.BRIGHTDATA_US_PROXY,
