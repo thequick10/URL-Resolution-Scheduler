@@ -19,6 +19,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// Root route (optional, in case index.html doesn't automatically load)
+app.get('/scheduled-results', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'results.html'));
+});
+
 function getRegionZoneMap() {
   return {
     US: process.env.BRIGHTDATA_US_PROXY,
